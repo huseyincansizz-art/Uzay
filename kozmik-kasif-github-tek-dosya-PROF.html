@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Kozmik Kaşif - Yusuf Cansız Eşref Ergin Ortaokulu</title>
+<meta name="theme-color" content="#8b5cf6"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#020617;--card:#0f172acc;--border:#1e293b;--mor:#8b5cf6;--turkuaz:#06b6d4;--text:#e2e8f0;--muted:#94a3b8}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+#stars{position:fixed;inset:0;z-index:-1}
+.header{position:sticky;top:0;z-index:50;background:rgba(2,6,23,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:14px 16px 12px}
+.header-top{max-width:1120px;margin:0 auto}
+.okul-line1{font-size:11px;letter-spacing:2.2px;font-weight:700;color:#a78bfa;text-transform:uppercase;line-height:1}
+.okul-line2{font-family:'Space Grotesk';font-size:22px;font-weight:700;color:#fff;letter-spacing:-.3px;line-height:1.2;margin-top:3px}
+.header-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--mor),var(--turkuaz));display:grid;place-items:center;font-weight:800;font-family:'Space Grotesk'}
+.brand-text b{font-family:'Space Grotesk';font-size:16px}
+.brand-text span{font-size:12px;color:var(--muted);margin-left:6px}
+.xp-wrap{text-align:right;min-width:110px}
+.xp-wrap .lvl{font-size:11px;color:var(--muted)}
+.xpbar{height:8px;background:#0b1228;border-radius:999px;border:1px solid var(--border);overflow:hidden;width:110px;margin-top:4px}
+.xpbar>div{height:100%;background:linear-gradient(90deg,var(--mor),var(--turkuaz));width:0%;transition:.4s}
+.nav{position:sticky;top:78px;z-index:40;background:rgba(2,6,23,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;gap:8px;overflow-x:auto;padding:10px 12px;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav button{white-space:nowrap;border:1px solid var(--border);background:rgba(15,23,42,.8);color:var(--text);padding:10px 16px;border-radius:999px;font-weight:600;font-size:13px;cursor:pointer;flex-shrink:0}
+.nav button.active{border-color:var(--mor);background:linear-gradient(135deg,rgba(139,92,246,.25),rgba(6,182,214,.18))}
+.main{max-width:1120px;margin:0 auto;padding:16px 14px 90px}
+.hero{border:1px solid var(--border);background:linear-gradient(180deg,rgba(15,23,42,.9),rgba(2,6,23,.9));border-radius:24px;padding:18px}
+.hero h1{font-family:'Space Grotesk';font-size:28px;line-height:1.15;margin:10px 0 8px}
+.hero h1 span{background:linear-gradient(90deg,var(--mor),var(--turkuaz));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:14px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+@media(min-width:768px){.grid{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:32px}}
+.card{border:1px solid var(--border);background:var(--card);backdrop-filter:blur(12px);border-radius:20px;padding:14px;cursor:pointer;transition:.2s}
+.card:active{transform:scale(.98)}
+.card h3{margin:8px 0 4px;font-size:15px}
+.card p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.45}
+.icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(139,92,246,.14);border:1px solid rgba(139,92,246,.22)}
+.section{display:none}.section.active{display:block;animation:fade .3s ease}@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.panel{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:12px;margin-top:12px}
+.row{display:flex;flex-wrap:wrap;gap:12px}.col{flex:1 1 280px}
+label{font-size:12px;color:var(--muted);display:block;margin:8px 0 4px}
+input[type=range]{width:100%}canvas{width:100%;border-radius:16px;background:radial-gradient(600px 400px at 50% 20%,#0b1228,#020617);border:1px solid var(--border)}
+.accordion button{width:100%;text-align:left;background:rgba(15,23,42,.7);border:1px solid var(--border);color:var(--text);padding:11px;border-radius:12px;margin:6px 0;cursor:pointer;font-weight:600;font-size:13px}
+.accordion .content{display:none;padding:10px 12px;color:var(--muted);font-size:13px;line-height:1.6;border-left:2px solid var(--mor);margin:0 0 8px 4px;background:rgba(139,92,246,.06);border-radius:0 12px 12px 0}
+.accordion .content.open{display:block}
+.info{border:1px dashed rgba(139,92,246,.45);background:rgba(139,92,246,.07);padding:10px;border-radius:12px;font-size:12px;color:#cbd5e1;line-height:1.5}
+.btn{border:1px solid var(--border);background:linear-gradient(135deg,var(--mor),var(--turkuaz));color:#fff;padding:10px 16px;border-radius:999px;font-weight:700;cursor:pointer;font-size:13px}
+.btn.ghost{background:rgba(15,23,42,.8);color:var(--text)}
+.mission{display:flex;gap:10px;align-items:center;border:1px solid var(--border);background:var(--card);border-radius:14px;padding:10px;margin:8px 0}
+.mission.done{border-color:rgba(34,211,166,.45)}
+.badge{padding:4px 10px;border-radius:999px;background:rgba(139,92,246,.18);border:1px solid rgba(139,92,246,.3);font-size:11px;font-weight:700}
+.journal-item{border:1px solid var(--border);background:var(--card);border-radius:14px;padding:10px;margin:8px 0}
+textarea,input[type=text]{width:100%;border:1px solid var(--border);background:#0b1228;color:var(--text);border-radius:10px;padding:9px;font-family:inherit;font-size:13px}
+.footer{text-align:center;color:var(--muted);font-size:11px;margin:28px 0 10px;padding:16px;border-top:1px solid var(--border);line-height:1.5}
+.timeline{display:flex;gap:10px;overflow:auto;padding:8px 0 12px}
+.timeline .epoch{min-width:180px;border:1px solid var(--border);background:var(--card);border-radius:14px;padding:10px;cursor:pointer;flex-shrink:0}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);display:none;place-items:center;z-index:100;padding:16px}
+.modal.open{display:grid}.modal-card{max-width:520px;width:100%;background:#0f172a;border:1px solid var(--border);border-radius:18px;padding:14px}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<header class="header">
+  <div class="header-top">
+    <div class="okul-line1">Yusuf Cansız</div>
+    <div class="okul-line2">Eşref Ergin Ortaokulu</div>
+    <div class="header-bottom">
+      <div class="brand"><div class="logo">KÇ</div><div class="brand-text"><b>Kozmik Kaşif</b><span>• TÜBİTAK 2204B • Bursa 2026</span></div></div>
+      <div class="xp-wrap"><div class="lvl">Seviye <span id="level">1</span> • <span id="xp">0</span> XP</div><div class="xpbar"><div id="xpFill"></div></div></div>
+    </div>
+  </div>
+</header>
+<nav class="nav" id="nav">
+  <button data-go="kesif" class="active">🧭 Keşif Merkezi</button>
+  <button data-go="karadelik">🕳️ Kara Delik Lab</button>
+  <button data-go="gezegen">🪐 Gezegen Avı</button>
+  <button data-go="zaman">⏳ Evrenin Zamanı</button>
+  <button data-go="yercekimi">🌌 Yerçekimi</button>
+  <button data-go="gorev">🏅 Görevlerim</button>
+  <button data-go="gunluk">📓 Günlüğüm</button>
+</nav>
+<main class="main">
+  <section id="kesif" class="section active">
+    <div class="hero">
+      <div style="display:inline-flex;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:rgba(15,23,42,.6);font-size:11px;color:var(--muted)">📍 Bursa • 2026 • TÜBİTAK 2204B Projesi • Prof. Sürüm</div>
+      <h1><span>Evrenin sırlarını keşfet!</span></h1>
+      <p>Sorular sor. Deneyler yap. Kozmosu tanı. Kendini bir uzay görevindeki bilim insanı gibi hisset.</p>
+      <div class="grid">
+        <div class="card" onclick="go('karadelik')"><div class="icon">🕳️</div><h3>Kara Delik Laboratuvarı</h3><p>Olay ufku, foton küresi, ışık bükülmesi, yıldız geçişi. Kütleyi değiştir.</p></div>
+        <div class="card" onclick="go('gezegen')"><div class="icon">🪐</div><h3>Gezegen Avı</h3><p>8 gezegen, NASA bilgi kartları, boyut/uzaklık/sıcaklık karşılaştırma.</p></div>
+        <div class="card" onclick="go('zaman')"><div class="icon">⏳</div><h3>Evrenin Zamanı</h3><p>Büyük Patlama'dan günümüze 13.8 milyar yıl.</p></div>
+        <div class="card" onclick="go('yercekimi')"><div class="icon">🌌</div><h3>Yerçekimi Deneyleri</h3><p>Kütle ve hızı değiştir, yörünge kur, kaçış hızını bul.</p></div>
+        <div class="card" onclick="go('gorev')"><div class="icon">🏅</div><h3>Kozmik Görevlerim</h3><p>9 görev, XP, rozetler. Okulumuzun Kaşifi ol!</p></div>
+        <div class="card" onclick="go('gunluk')"><div class="icon">📓</div><h3>Keşif Günlüğüm</h3><p>Soru → Tahmin → Gözlem → Öğrenme. JSON dışa aktar.</p></div>
+      </div>
+    </div>
+  </section>
+  <section id="karadelik" class="section">
+    <h2 style="font-family:'Space Grotesk'">🕳️ Kara Delik Laboratuvarı</h2>
+    <div class="row">
+      <div class="col" style="flex:2 1 420px">
+        <canvas id="bhCanvas" width="800" height="520"></canvas>
+        <div class="row" style="margin-top:8px">
+          <div class="col"><label>Kütle: <span id="massVal">10</span> M☉</label><input id="mass" type="range" min="5" max="80" value="10" step="1"/></div>
+          <div class="col"><label>Zoom: <span id="zoomVal">1.0</span>x</label><input id="zoom" type="range" min="0.6" max="2.5" value="1" step="0.1"/></div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <button class="btn ghost" id="toggleRays">Işık Işınları: Açık</button>
+          <button class="btn ghost" id="starPass">⭐ Yıldız Geçişi</button>
+          <button class="btn ghost" id="resetBH">Sıfırla</button>
+        </div>
+        <div class="info" style="margin-top:10px"><span id="rsInfo"></span><br/>Gerçek: EHT M87* (2019). Bu Canvas basitleştirilmiş simülasyondur.</div>
+      </div>
+      <div class="col"><div class="panel"><div style="font-weight:700;margin-bottom:6px">🧠 Merak Soruları</div><div class="accordion" id="bhQuestions"></div></div></div>
+    </div>
+  </section>
+  <section id="gezegen" class="section">
+    <h2 style="font-family:'Space Grotesk'">🪐 Gezegen Avı</h2>
+    <div class="row">
+      <div class="col" style="flex:2 1 460px"><canvas id="solarCanvas" width="900" height="520"></canvas>
+        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><button class="btn ghost" id="toggleScale">Ölçek Açıklaması</button><button class="btn ghost" id="compareBtn">Karşılaştırma: Boyut</button><button class="btn ghost" id="taskDist">Görev: En Uzak?</button></div>
+        <div id="scaleInfo" class="info" style="display:none;margin-top:8px">Gerçek ölçekte gezegenler 1px kalır. Boyutlar sembolik büyütüldü.</div>
+        <canvas id="compareCanvas" width="800" height="200" style="margin-top:10px;display:none"></canvas>
+      </div>
+      <div class="col"><div class="panel" id="planetCard"><div style="font-weight:700">Bir gezegen seç</div><div id="planetList" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px"></div></div><div class="panel" id="planetDetail" style="display:none"></div></div>
+    </div>
+  </section>
+  <section id="zaman" class="section"><h2 style="font-family:'Space Grotesk'">⏳ Evrenin Zamanı</h2><div class="timeline" id="timeline"></div><div class="panel" style="font-size:12px;color:var(--muted)">Döneme dokun → Ne biliyoruz / Ne bilmiyoruz. Kaynak: ESA Planck, NASA WMAP.</div></section>
+  <section id="yercekimi" class="section">
+    <h2 style="font-family:'Space Grotesk'">🌌 Yerçekimi Deneyleri</h2>
+    <div class="row">
+      <div class="col" style="flex:2 1 460px"><canvas id="gravCanvas" width="800" height="520"></canvas><div style="display:flex;gap:8px;margin-top:8px"><button class="btn ghost" id="launchBtn">🚀 Fırlat</button><button class="btn ghost" id="clearGrav">Temizle</button><span id="gravStatus" class="badge">Hazır</span></div></div>
+      <div class="col"><div class="panel">
+        <label>Kütle: <span id="gMassVal">1.0</span> Dünya</label><input id="gMass" type="range" min="0.1" max="10" step="0.1" value="1"/>
+        <label>Hız: <span id="gVelVal">7.5</span> km/s</label><input id="gVel" type="range" min="1" max="12" step="0.1" value="7.5"/>
+        <label>Açı: <span id="gAngVal">90</span>°</label><input id="gAng" type="range" min="0" max="180" step="1" value="90"/>
+        <div class="info" style="margin-top:10px">F=GMm/r² Newton. 7.8 km/s yörünge, 11.2 km/s kaçış.</div></div><div class="panel"><div id="gravObs" style="font-size:12px;color:var(--muted)">Hızı artır, yörünge genişler.</div></div></div>
+    </div>
+  </section>
+  <section id="gorev" class="section"><h2 style="font-family:'Space Grotesk'">🏅 Görevlerim</h2><div class="panel" style="display:flex;justify-content:space-between;flex-wrap:wrap"><div><b>Seviye <span id="level2">1</span></b> - <span id="xp2">0</span> XP / <span id="nextXp">500</span> • Rozet: <span id="badgeCount">0</span></div><button class="btn ghost" id="resetProg">Sıfırla</button></div><div id="missions"></div></section>
+  <section id="gunluk" class="section">
+    <h2 style="font-family:'Space Grotesk'">📓 Keşif Günlüğüm</h2>
+    <div class="panel"><label>Başlık</label><input id="jTitle" type="text" placeholder="Örn: Işık neden bükülür?"/><label>Soru</label><input id="jQuestion" type="text"/><label>Tahminim</label><textarea id="jHypo" rows="2"></textarea><label>Gözlemim</label><textarea id="jObs" rows="2"></textarea><label>Öğrendiğim</label><textarea id="jLearn" rows="2"></textarea><div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><button class="btn" id="saveJ">💾 Kaydet</button><button class="btn ghost" id="exportJ">⬇️ JSON</button><label class="btn ghost">⬆️ Yükle<input id="importJ" type="file" accept=".json" style="display:none"/></label></div></div><div id="journalList"></div>
+  </section>
+  <div class="footer">Yusuf Cansız<br/>Eşref Ergin Ortaokulu<br/>Bursa 2026 • TÜBİTAK 2204B Kozmik Kaşif • MIT • NASA & ESA verileri • Tek dosya GitHub Pages uyumlu</div>
+</main>
+<div class="modal" id="epochModal"><div class="modal-card"><div style="display:flex;justify-content:space-between"><h3 id="epochTitle"></h3><button class="btn ghost" onclick="closeModal()">Kapat</button></div><div id="epochBody" style="font-size:13px;color:#94a3b8;line-height:1.6"></div></div></div>
+<script>
+// === LOGIC ===
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+let state=JSON.parse(localStorage.getItem('kozmik_v3')||'{}'); state.xp=state.xp||0; state.missions=state.missions||{}; state.journal=state.journal||[];
+function save(){localStorage.setItem('kozmik_v3',JSON.stringify(state));updateXP();renderMissions();}
+function updateXP(){const lvl=Math.floor(state.xp/500)+1; $('#level').textContent=lvl; $('#level2')&&($('#level2').textContent=lvl); $('#xp').textContent=state.xp; $('#xp2')&&($('#xp2').textContent=state.xp); $('#xpFill').style.width=((state.xp%500)/500*100)+'%'; $('#nextXp')&&($('#nextXp').textContent=lvl*500); $('#badgeCount')&&($('#badgeCount').textContent=Object.values(state.missions).filter(Boolean).length);}
+function completeMission(id,xp=100){if(!state.missions[id]){state.missions[id]=true;state.xp+=xp;save();}}
+function go(id){$$('.section').forEach(s=>s.classList.remove('active')); $('#'+id).classList.add('active'); $$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.go===id)); scrollTo({top:0,behavior:'smooth'}); if(id==='gezegen')completeMission('visit_planets'); if(id==='karadelik')completeMission('visit_bh');}
+$('#nav').addEventListener('click',e=>{const b=e.target.closest('button[data-go]'); if(b) go(b.dataset.go);});
+// stars
+(function(){const c=$('#stars'),ctx=c.getContext('2d');function r(){c.width=innerWidth;c.height=innerHeight}r();addEventListener('resize',r);const s=Array.from({length:160},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.3+0.2,tw:Math.random()*2}));let t=0;(function loop(){t+=0.01;ctx.clearRect(0,0,c.width,c.height);for(const st of s){ctx.globalAlpha=0.5+Math.sin(t*st.tw)*0.3;ctx.fillStyle='#94a3b8';ctx.beginPath();ctx.arc(st.x*c.width,st.y*c.height,st.r,0,Math.PI*2);ctx.fill();}requestAnimationFrame(loop);})();})();
+// BH
+(function(){const canvas=$('#bhCanvas');if(!canvas)return;const ctx=canvas.getContext('2d');let mass=10,zoom=1,showRays=true,starAnim=null,time=0;const massS=$('#mass'),zoomS=$('#zoom');function upd(){ $('#massVal').textContent=mass; $('#zoomVal').textContent=zoom.toFixed(1); $('#rsInfo').textContent=`r_s ≈ ${3*mass} km (sembolik) • ${mass} M☉ için`; }const qs=[{q:"Kara delik neden siyahtır?",a:"Kütlesi uzay-zamanı büker, kaçış hızı ışık hızını aşar. Işık kaçamaz, siyah görünür. Çevresi parlaktır. Kaynak: NASA"},{q:"Işık neden kaçamaz?",a:"Genel görelilik: uzay bükülür, ışık düz gidemez, yörüngede kalır."},{q:"Her şeyi yutar mı?",a:"Hayır, sadece yakınından geçeni. Uzakta Güneş gibi çeker."},{q:"Olay ufku nedir?",a:"Geri dönüşü olmayan sınır. Geçersen kaçamazsın."},{q:"Nasıl oluşur?",a:"Dev yıldız süpernova patlar, çekirdek çöker."}];const root=$('#bhQuestions');qs.forEach((it,i)=>{const b=document.createElement('button');b.textContent=(i+1)+". "+it.q;const d=document.createElement('div');d.className='content';d.textContent=it.a;b.onclick=()=>{d.classList.toggle('open');if(d.classList.contains('open'))completeMission('learn_event_horizon');};root.append(b,d);});let bg=Array.from({length:220},()=>({x:(Math.random()-0.5)*2,y:(Math.random()-0.5)*2,r:Math.random()*1+0.2}));function draw(){time+=0.016;const W=canvas.width,H=canvas.height,cx=W/2,cy=H/2,baseRs=18+mass*1.2,Rs=baseRs*zoom,photon=Rs*1.5;ctx.clearRect(0,0,W,H);const gradBg=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.max(W,H));gradBg.addColorStop(0,'#0b1228');gradBg.addColorStop(1,'#020617');ctx.fillStyle=gradBg;ctx.fillRect(0,0,W,H);for(const s of bg){let dx=s.x,dy=s.y,dist=Math.hypot(dx,dy);if(dist<0.01)continue;const bend=(Rs*2)/(dist*400+Rs);const f=1+bend*0.6;const sx=cx+dx*f*W*0.5,sy=cy+dy*f*H*0.5;if(sx<0||sx>W||sy<0||sy>H)continue;ctx.globalAlpha=0.55;ctx.fillStyle='#94a3b8';ctx.beginPath();ctx.arc(sx,sy,s.r*zoom,0,Math.PI*2);ctx.fill();}ctx.globalAlpha=1;ctx.save();ctx.translate(cx,cy);ctx.scale(1,0.55);const diskGrad=ctx.createRadialGradient(0,0,Rs*1.1,0,0,Rs*3.2);diskGrad.addColorStop(0,'rgba(251,146,60,0.9)');diskGrad.addColorStop(0.6,'rgba(139,92,246,0.5)');diskGrad.addColorStop(1,'rgba(6,182,214,0.15)');ctx.fillStyle=diskGrad;ctx.beginPath();ctx.arc(0,0,Rs*3.2,0,Math.PI*2);ctx.arc(0,0,Rs*1.3,0,Math.PI*2,true);ctx.fill();ctx.beginPath();ctx.arc(0,0,Rs*3,-0.4,0.6);ctx.lineWidth=10;ctx.strokeStyle='rgba(255,220,120,0.7)';ctx.stroke();ctx.restore();ctx.save();ctx.strokeStyle='rgba(6,182,214,0.5)';ctx.setLineDash([6,6]);ctx.lineWidth=1.2;ctx.beginPath();ctx.arc(cx,cy,photon,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='rgba(6,182,214,0.8)';ctx.font='11px Inter';ctx.fillText('Foton Küresi',cx+photon+6,cy-6);ctx.restore();if(showRays){ctx.strokeStyle='rgba(34,211,166,0.32)';ctx.lineWidth=1;for(let ang=0;ang<Math.PI*2;ang+=Math.PI/8){ctx.beginPath();let r=Rs*6,a=ang+time*0.1,x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r*0.6;ctx.moveTo(x,y);for(let step=0;step<60;step++){const dx=x-cx,dy=(y-cy)/0.55,d=Math.hypot(dx,dy);const bend=(Rs*Rs)/(d*d+Rs*Rs)*0.12;const dir=Math.atan2(dy,dx)+Math.PI/2*bend;x+=Math.cos(dir)*4;y+=Math.sin(dir)*4*0.55;ctx.lineTo(x,y);if(d<Rs)break;}ctx.stroke();}}ctx.beginPath();ctx.arc(cx,cy,Rs,0,Math.PI*2);const bhGrad=ctx.createRadialGradient(cx-Rs*0.3,cy-Rs*0.3,Rs*0.2,cx,cy,Rs);bhGrad.addColorStop(0,'#1e293b');bhGrad.addColorStop(0.4,'#020617');bhGrad.addColorStop(1,'#000');ctx.fillStyle=bhGrad;ctx.fill();ctx.strokeStyle='rgba(139,92,246,0.8)';ctx.lineWidth=2;ctx.setLineDash([8,6]);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='white';ctx.font='bold 12px Space Grotesk';ctx.fillText('Olay Ufku',cx-Rs*0.7,cy+Rs+16);if(starAnim){const p=starAnim.t,sx=cx+(p-0.5)*W*1.2,sy=cy+Math.sin(p*Math.PI)*-120+Rs*0.2,dist=Math.hypot(sx-cx,sy-cy),stretch=Math.max(1,(Rs*3)/Math.max(dist,Rs*0.8));ctx.save();ctx.translate(sx,sy);ctx.scale(stretch,1/stretch*0.6);ctx.fillStyle='#fde68a';ctx.beginPath();ctx.arc(0,0,8,0,Math.PI*2);ctx.fill();ctx.restore();starAnim.t+=0.008;if(starAnim.t>1){starAnim=null;completeMission('star_pass');}}requestAnimationFrame(draw);}draw();massS.addEventListener('input',e=>{mass=parseFloat(e.target.value);upd();});zoomS.addEventListener('input',e=>{zoom=parseFloat(e.target.value);upd();});$('#toggleRays').onclick=()=>{showRays=!showRays;$('#toggleRays').textContent='Işık Işınları: '+(showRays?'Açık':'Kapalı');};$('#starPass').onclick=()=>{starAnim={t:0};};$('#resetBH').onclick=()=>{mass=10;zoom=1;massS.value=10;zoomS.value=1;upd();};upd();})();
+// planets
+(function(){const canvas=$('#solarCanvas');if(!canvas)return;const ctx=canvas.getContext('2d');const compare=$('#compareCanvas'),cCtx=compare.getContext('2d');const data=[{id:'merkur',name:'Merkür',dia:4879,mass:0.055,dist:57.9,temp:167,day:1407,moons:0,color:'#a8a29e'},{id:'venus',name:'Venüs',dia:12104,mass:0.815,dist:108.2,temp:464,day:5832,moons:0,color:'#f5d0a9'},{id:'dunya',name:'Dünya',dia:12742,mass:1,dist:149.6,temp:15,day:24,moons:1,color:'#60a5fa'},{id:'mars',name:'Mars',dia:6779,mass:0.107,dist:228,temp:-65,day:24.6,moons:2,color:'#fb7185'},{id:'jupiter',name:'Jüpiter',dia:139820,mass:317.8,dist:778.5,temp:-110,day:9.9,moons:95,color:'#fdba74'},{id:'saturn',name:'Satürn',dia:116460,mass:95.2,dist:1432,temp:-140,day:10.7,moons:146,color:'#fde68a'},{id:'uranus',name:'Uranüs',dia:50724,mass:14.5,dist:2867,temp:-195,day:-17.2,moons:28,color:'#7dd3fc'},{id:'neptun',name:'Neptün',dia:49244,mass:17.1,dist:4515,temp:-200,day:16.1,moons:16,color:'#818cf8'}];let sel=null,time=0,mode='size';const listRoot=$('#planetList');data.forEach(p=>{const b=document.createElement('button');b.className='btn ghost';b.style='font-size:11px;padding:6px 10px';b.textContent=p.name;b.onclick=()=>{sel=data.find(x=>x.id===p.id);renderDetail();completeMission('first_planet');};listRoot.appendChild(b);});function renderDetail(){const r=$('#planetDetail');r.style.display='block';const p=sel;if(!p)return;r.innerHTML=`<div style="display:flex;gap:8px;align-items:center"><div style="width:28px;height:28px;border-radius:50%;background:${p.color}"></div><b>${p.name}</b></div><div style="margin-top:8px;font-size:12px"><div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed rgba(255,255,255,.08)"><span>Çap</span><b>${p.dia.toLocaleString('tr-TR')} km</b></div><div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed rgba(255,255,255,.08)"><span>Uzaklık</span><b>${p.dist} M km</b></div><div style="display:flex;justify-content:space-between;padding:4px 0"><span>Sıcaklık</span><b>${p.temp}°C</b></div></div>`;}function drawSolar(){time+=0.006;const W=canvas.width,H=canvas.height,cx=W/2,cy=H/2;ctx.clearRect(0,0,W,H);const bg=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.max(W,H));bg.addColorStop(0,'#0b1228');bg.addColorStop(1,'#020617');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);const sunGrad=ctx.createRadialGradient(cx,cy,0,cx,cy,22);sunGrad.addColorStop(0,'#fef08a');sunGrad.addColorStop(1,'#ea580c');ctx.fillStyle=sunGrad;ctx.beginPath();ctx.arc(cx,cy,18,0,Math.PI*2);ctx.fill();data.forEach((p,i)=>{const base=44+Math.log(p.dist)*18,ang=time*(1/(i*0.4+1))+i,x=cx+Math.cos(ang)*base,y=cy+Math.sin(ang)*base*0.55;ctx.strokeStyle='rgba(148,163,184,0.15)';ctx.beginPath();ctx.ellipse(cx,cy,base,base*0.55,0,0,Math.PI*2);ctx.stroke();const sz=Math.max(3.5,Math.log(p.dia)*1);ctx.fillStyle=p.color;ctx.beginPath();ctx.arc(x,y,sz,0,Math.PI*2);ctx.fill();if(sel&&sel.id===p.id){ctx.strokeStyle='#06b6d4';ctx.lineWidth=2;ctx.stroke();}p._pos={x,y,sz};});requestAnimationFrame(drawSolar);}drawSolar();canvas.addEventListener('click',e=>{const rect=canvas.getBoundingClientRect(),sx=canvas.width/rect.width,sy=canvas.height/rect.height,x=(e.clientX-rect.left)*sx,y=(e.clientY-rect.top)*sy;for(const p of data){if(p._pos&&Math.hypot(x-p._pos.x,y-p._pos.y)<p._pos.sz+10){sel=p;renderDetail();completeMission('first_planet');break;}}});function drawCompare(m){mode=m;compare.style.display='block';const W=compare.width,H=compare.height;cCtx.clearRect(0,0,W,H);cCtx.fillStyle='#0b1228';cCtx.fillRect(0,0,W,H);let vals;if(m==='size')vals=data.map(p=>p.dia);else if(m==='dist')vals=data.map(p=>p.dist);else vals=data.map(p=>p.temp+250);const max=Math.max(...vals),barW=W/data.length*0.6,gap=W/data.length*0.4;data.forEach((p,i)=>{const h=(vals[i]/max)*(H-36),x=i*(barW+gap)+gap/2,y=H-h-18;cCtx.fillStyle=p.color;cCtx.fillRect(x,y,barW,h);cCtx.fillStyle='#94a3b8';cCtx.font='10px Inter';cCtx.fillText(p.name.slice(0,3),x,H-4);});cCtx.fillStyle='#cbd5e1';cCtx.font='11px Inter';cCtx.fillText(m==='size'?'Çap':m==='dist'?'Uzaklık':'Sıcaklık',10,12);completeMission('compare_planets');}$('#compareBtn').onclick=()=>{const modes=['size','dist','temp'],idx=modes.indexOf(mode),next=modes[(idx+1)%3];const names={size:'Boyut',dist:'Uzaklık',temp:'Sıcaklık'};$('#compareBtn').textContent='Karşılaştırma: '+names[next];drawCompare(next);};$('#toggleScale').onclick=()=>{const el=$('#scaleInfo');el.style.display=el.style.display==='none'?'block':'none';};$('#taskDist').onclick=()=>{const ans=prompt('En uzak gezegen?');if(ans&&ans.toLowerCase().includes('nept')){alert('Doğru! Neptün +100 XP');completeMission('farthest',150);}else alert('İpucu: En dış halka');};})();
+// timeline
+(function(){const epochs=[{id:'bb',time:'13.8 milyar yıl önce',title:'Büyük Patlama',desc:'Evren genişlemeye başladı.',know:'Planck ile ölçüldü.',unknown:'Öncesi bilinmiyor.',color:'#8b5cf6'},{id:'stars',time:'200 milyon yıl sonra',title:'İlk Yıldızlar',desc:'Karanlık çağ bitti.',know:'JWST görüyor.',unknown:'Kütleleri?',color:'#f59e0b'},{id:'galaxies',time:'1 milyar yıl sonra',title:'Galaksiler',desc:'Yıldızlar galaksileri kurdu.',know:'Milyarlarca var.',unknown:'Karanlık madde?',color:'#06b6d4'},{id:'solar',time:'4.6 milyar önce',title:'Güneş Sistemi',desc:'Buluttan oluştu.',know:'4.6 milyar yaş.',unknown:'Hayatın kökeni?',color:'#facc15'},{id:'earth',time:'4.5 milyar önce',title:'Dünya',desc:'Çarpışmalarla oluştu.',know:'Ay çarpışma.',unknown:'Hayat nasıl başladı?',color:'#22d3a6'},{id:'now',time:'Günümüz',title:'Günümüz',desc:'Genişliyoruz.',know:'Karanlık enerji.',unknown:'Sonu?',color:'#ec4899'}];const root=$('#timeline');epochs.forEach(ep=>{const div=document.createElement('div');div.className='epoch';div.innerHTML=`<div style="font-size:10px;color:#94a3b8">${ep.time}</div><div style="font-weight:700;margin:4px 0;font-size:13px">${ep.title}</div><div style="height:5px;border-radius:999px;background:${ep.color};margin:4px 0"></div><div style="font-size:11px;color:#94a3b8">${ep.desc}</div>`;div.onclick=()=>{ $('#epochTitle').textContent=ep.title+' - '+ep.time; $('#epochBody').innerHTML=`<div style="padding:8px;border-radius:10px;background:${ep.color}22;border:1px solid ${ep.color}44;margin-bottom:8px">${ep.desc}</div><div><b style="color:#22d3a6">✅ Biliyoruz:</b> ${ep.know}</div><div style="margin-top:6px"><b style="color:#f59e0b">❓ Bilmiyoruz:</b> ${ep.unknown}</div>`; $('#epochModal').classList.add('open'); if(ep.id==='galaxies')completeMission('galaxy_structure');};root.appendChild(div);});window.closeModal=()=>$('#epochModal').classList.remove('open');})();
+// grav
+(function(){const canvas=$('#gravCanvas');if(!canvas)return;const ctx=canvas.getContext('2d');const massS=$('#gMass'),velS=$('#gVel'),angS=$('#gAng');let planetMass=1,vel=7.5,angle=90,G=0.08,trails=[],running=false,anim=null;function upd(){ $('#gMassVal').textContent=planetMass.toFixed(1); $('#gVelVal').textContent=vel.toFixed(1); $('#gAngVal').textContent=angle.toFixed(0);}massS.addEventListener('input',e=>{planetMass=parseFloat(e.target.value);upd();});velS.addEventListener('input',e=>{vel=parseFloat(e.target.value);upd();});angS.addEventListener('input',e=>{angle=parseFloat(e.target.value);upd();});function draw(){const W=canvas.width,H=canvas.height,cx=W/2,cy=H/2;ctx.clearRect(0,0,W,H);const bg=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.max(W,H));bg.addColorStop(0,'#0b1228');bg.addColorStop(1,'#020617');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);const pr=18+planetMass*2,grad=ctx.createRadialGradient(cx-6,cy-6,2,cx,cy,pr);grad.addColorStop(0,'#93c5fd');grad.addColorStop(1,'#1e40af');ctx.fillStyle=grad;ctx.beginPath();ctx.arc(cx,cy,pr,0,Math.PI*2);ctx.fill();if(trails.length>1){ctx.strokeStyle='#06b6d4';ctx.lineWidth=1.5;ctx.beginPath();trails.forEach((p,i)=>{if(i===0)ctx.moveTo(p.x,p.y);else ctx.lineTo(p.x,p.y);});ctx.stroke();const last=trails[trails.length-1];if(last){ctx.fillStyle='#22d3a6';ctx.beginPath();ctx.arc(last.x,last.y,4,0,Math.PI*2);ctx.fill();}}ctx.fillStyle='rgba(255,255,255,0.5)';ctx.beginPath();ctx.arc(cx+120,cy,3,0,Math.PI*2);ctx.fill();}function launch(){trails=[];const W=canvas.width,H=canvas.height,cx=W/2,cy=H/2;let x=cx+120,y=cy,rad=angle*Math.PI/180,vx=Math.cos(rad)*vel*0.9,vy=Math.sin(rad)*vel*0.9*-1,steps=0;running=true;(function step(){if(!running)return;const dx=x-cx,dy=y-cy,r=Math.hypot(dx,dy);if(r<18){$('#gravStatus').textContent='💥 Çarpma!';running=false;$('#gravObs').textContent='Çarptı. Hızı artır.';return;}if(r>500){$('#gravStatus').textContent='🚀 Kaçış!';running=false;$('#gravObs').textContent='Kaçış hızı! Dünya için 11.2 km/s.';completeMission('gravity_experiment',120);return;}const force=G*planetMass*200/(r*r),ax=-force*dx/r,ay=-force*dy/r;vx+=ax;vy+=ay;x+=vx;y+=vy;trails.push({x,y});if(trails.length>700)trails.shift();draw();steps++;if(steps>1800){$('#gravStatus').textContent='🛰️ Yörüngede!';$('#gravObs').textContent='Kararlı yörünge!';completeMission('gravity_experiment');running=false;return;}anim=requestAnimationFrame(step);})();}draw();$('#launchBtn').onclick=launch;$('#clearGrav').onclick=()=>{trails=[];running=false;if(anim)cancelAnimationFrame(anim);draw();$('#gravStatus').textContent='Hazır';};upd();})();
+// missions
+(function(){const list=[{id:'visit_planets',title:'İlk gezegenini keşfet',desc:'Gezegen Avı bölümüne gir ve dokun',xp:100,icon:'🪐'},{id:'visit_bh',title:'Kara deliğe yaklaş',desc:'Kara Delik Lab ziyaret et',xp:80,icon:'🕳️'},{id:'learn_event_horizon',title:'Olay ufkunu öğren',desc:'Sorulardan birini aç',xp:120,icon:'🧠'},{id:'farthest',title:'En uzak gezegeni bul',desc:'Neptün görevini yap',xp:150,icon:'🔭'},{id:'compare_planets',title:'Gezegenleri karşılaştır',desc:'Karşılaştırma aç',xp:90,icon:'📊'},{id:'galaxy_structure',title:'Galaksi yapısı',desc:'Evren Zamanı Galaksiler aç',xp:100,icon:'🌌'},{id:'gravity_experiment',title:'Yerçekimi deneyi',desc:'Yörünge veya kaçış yap',xp:120,icon:'🚀'},{id:'star_pass',title:'Yıldız geçişi',desc:'Yıldız geçişi simüle et',xp:130,icon:'⭐'},{id:'first_journal',title:'Okulumuzun Kaşifi Ol',desc:'Günlük yaz - YCEEOO',xp:200,icon:'📓'}];window.renderMissions=()=>{const root=$('#missions');if(!root)return;root.innerHTML='';list.forEach(m=>{const done=!!state.missions[m.id];const div=document.createElement('div');div.className='mission'+(done?' done':'');div.innerHTML=`<div style="font-size:20px">${m.icon}</div><div style="flex:1"><div style="font-weight:700;font-size:13px">${m.title} ${done?'✅':''}</div><div style="font-size:11px;color:#94a3b8">${m.desc}</div></div><div class="badge">${m.xp} XP</div>`;root.appendChild(div);});};renderMissions();$('#resetProg').onclick=()=>{if(confirm('Sıfırla?')){state={xp:0,missions:{},journal:[]};save();location.reload();}};})();
+// journal
+(function(){const t=$('#jTitle'),q=$('#jQuestion'),h=$('#jHypo'),o=$('#jObs'),l=$('#jLearn'),list=$('#journalList');function render(){list.innerHTML='';if(state.journal.length===0){list.innerHTML='<div class="info" style="margin-top:8px">Henüz not yok. İlk keşfini yaz!</div>';return;}state.journal.slice().reverse().forEach((j,idxRev)=>{const idx=state.journal.length-1-idxRev;const div=document.createElement('div');div.className='journal-item';div.innerHTML=`<div style="font-weight:700;font-size:13px">${j.title} <span style="font-size:10px;color:#94a3b8">${new Date(j.date).toLocaleString('tr-TR')}</span></div><div style="font-size:11px;color:#94a3b8;margin-top:4px"><b>Soru:</b> ${j.question}<br/><b>Tahmin:</b> ${j.hypo}<br/><b>Gözlem:</b> ${j.obs}<br/><b>Öğrenme:</b> ${j.learn}</div><div style="margin-top:6px;display:flex;gap:6px"><button class="btn ghost" style="padding:6px 10px;font-size:11px" onclick="editJ(${idx})">Düzenle</button><button class="btn ghost" style="padding:6px 10px;font-size:11px" onclick="delJ(${idx})">Sil</button></div>`;list.appendChild(div);});}window.editJ=(i)=>{const j=state.journal[i];if(!j)return;t.value=j.title;q.value=j.question;h.value=j.hypo;o.value=j.obs;l.value=j.learn;state.journal.splice(i,1);save();render();};window.delJ=(i)=>{if(confirm('Sil?')){state.journal.splice(i,1);save();render();}};$('#saveJ').onclick=()=>{if(!t.value.trim()){alert('Başlık yaz');return;}state.journal.push({title:t.value.trim(),question:q.value.trim(),hypo:h.value.trim(),obs:o.value.trim(),learn:l.value.trim(),date:new Date().toISOString()});save();render();t.value=q.value=h.value=o.value=l.value='';completeMission('first_journal',200);};$('#exportJ').onclick=()=>{const blob=new Blob([JSON.stringify({okul:'Yusuf Cansız Eşref Ergin Ortaokulu',date:new Date().toISOString(),entries:state.journal},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='kozmik-gunluk.json';a.click();URL.revokeObjectURL(url);};$('#importJ').addEventListener('change',e=>{const file=e.target.files[0];if(!file)return;const r=new FileReader();r.onload=ev=>{try{const d=JSON.parse(ev.target.result);const entries=d.entries||d;if(Array.isArray(entries)){state.journal=entries;save();render();}}catch{alert('JSON hatası');}};r.readAsText(file);});render();})();
+updateXP();
+</script>
+</body>
+</html>
